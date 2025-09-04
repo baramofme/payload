@@ -26,14 +26,10 @@ const nextConfig = {
       },
       // NEXT_PUBLIC_SERVER_URL이 있다면 해당 도메인도 허용
       ...(NEXT_PUBLIC_SERVER_URL && NEXT_PUBLIC_SERVER_URL.startsWith('http')
-        ? [new URL(NEXT_PUBLIC_SERVER_URL).hostname].map((hostname) => {
-            const url = new URL(hostname)
-    
-            return {
-              hostname: url.hostname,
-              protocol: url.protocol.replace(':', ''),
-            }
-          })
+        ? [new URL(NEXT_PUBLIC_SERVER_URL).hostname].map((hostname) => ({
+            protocol: new URL(NEXT_PUBLIC_SERVER_URL).protocol.replace(':', ''),
+            hostname: hostname,
+          }))
         : []),
     ],
   },
