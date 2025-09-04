@@ -12,6 +12,9 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: [
+      'https://payload.ts.mezeet.com', // Payload 도메인을 추가
+  ],
   images: {
     remotePatterns: [
       {
@@ -48,12 +51,7 @@ const nextConfig = {
     return webpackConfig
   },
   reactStrictMode: true,
-  redirects,
-  experimental: {
-    allowedDevOrigins: [
-      'https://payload.ts.mezeet.com', // Payload 도메인을 추가
-    ],
-  },
+  redirects
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
