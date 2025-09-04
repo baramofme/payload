@@ -9,6 +9,7 @@ services:
       - ../../tools:/home/node/app/tools
       - ../../test:/home/node/app/test
       - node_modules:/home/node/app/node_modules
+      - next_cache:/home/node/app/.next
     working_dir: /home/node/app/
     command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
@@ -39,11 +40,15 @@ services:
     command:
       - --storageEngine=wiredTiger
     volumes:
-      - data:/data/db
+      - mongo_data:/data/db
     logging:
       driver: none
 
 volumes:
+  # for persist, follow dokploy way
+  - mongo_data:../files/mongo_data
+  - node_modules:../files/node_modules
+  - next_cache:../files/next_cache
   #pgdata:
-  data:
-  node_modules:
+  #data:
+  #node_modules:
