@@ -53,3 +53,4 @@ volumes:
   #pgdata:
   mongo_data:
   node_modules:
+  next_cache:
