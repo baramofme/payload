@@ -9,7 +9,7 @@ services:
       - ../../tools:/home/node/app/tools
       - ../../test:/home/node/app/test
       - node_modules:/home/node/app/node_modules
-      - next_cache:/home/node/app/.next
+      - next_cache:/home/node/app/.next/cache
       # for persist ... place volumes in dokploy service files folder
       #- ../../../files/node_modules:/home/node/app/node_modules
       #- ../../../files/next_cache:/home/node/app/.next
