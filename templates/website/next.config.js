@@ -6,31 +6,35 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import redirects from './redirects.js'
 
-const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : undefined || process.env.__NEXT_PRIVATE_ORIGIN || 'http://localhost:3000'
+const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: [
-      'https://payload.ts.mezeet.com', // Payload 도메인을 추가
-  ],
+  experimental: {
+    allowedDevOrigins: ['https://payload.ts.mezeet.com'],
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'payload.ts.mezeet.com',
       },
-      ...[NEXT_PUBLIC_SERVER_URL ,/* 'https://example.com' */
-          'https://payload.ts.mezeet.com'
-      ].map((item) => {
-        const url = new URL(item)
-
-        return {
-          hostname: url.hostname,
-          protocol: url.protocol.replace(':', ''),
-        }
-      }),
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+      },
+      // NEXT_PUBLIC_SERVER_URL이 있다면 해당 도메인도 허용
+      ...(NEXT_PUBLIC_SERVER_URL && NEXT_PUBLIC_SERVER_URL.startsWith('http')
+        ? [new URL(NEXT_PUBLIC_SERVER_URL).hostname].map((hostname) => {
+            const url = new URL(hostname)
+    
+            return {
+              hostname: url.hostname,
+              protocol: url.protocol.replace(':', ''),
+            }
+          })
+        : []),
     ],
   },
   webpack: (webpackConfig, {isServer}) => {
