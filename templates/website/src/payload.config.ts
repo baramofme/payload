@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb' // database-adapter-import
+// import { postgresAdapter } from '@payloadcms/db-postgres';
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -63,6 +64,11 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
+  //db: postgresAdapter({
+  //  pool: {
+  //    connectionString: process.env.DATABASE_URI,
+  //  },
+  //}),
   // database-adapter-config-end
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
