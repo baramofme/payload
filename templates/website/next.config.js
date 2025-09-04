@@ -14,7 +14,10 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 const nextConfig = {
   images: {
     remotePatterns: [
-      domains: ['payload.ts.mezeet.com'],
+      {
+        protocol: 'https',
+        hostname: 'payload.ts.mezeet.com',
+      },
       ...[NEXT_PUBLIC_SERVER_URL ,/* 'https://example.com' */
           'https://payload.ts.mezeet.com'
       ].map((item) => {
@@ -28,14 +31,6 @@ const nextConfig = {
     ],
   },
   webpack: (webpackConfig, {isServer}) => {
-    /* 
-    if (!isServer) {
-       webpackConfig.cache = {
-          type: 'filesystem',
-          cacheDirectory: path.resolve(__dirname, './node_modules/.next/cache'),
-       }
-    } 
-    */
     webpackConfig.stats = {
       reasons: true,
       chunks: true,
