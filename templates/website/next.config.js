@@ -16,6 +16,7 @@ const nextConfig = {
     remotePatterns: [
       ...[NEXT_PUBLIC_SERVER_URL ,/* 'https://example.com' */
       'http://192.168.45.181:4000', /* 새로운 URL을 직접 추가 */
+          'https://payload.ts.mezeet.com'
       ].map((item) => {
         const url = new URL(item)
 
