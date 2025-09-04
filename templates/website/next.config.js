@@ -49,6 +49,11 @@ const nextConfig = {
   },
   reactStrictMode: true,
   redirects,
+  experimental: {
+    allowedDevOrigins: [
+      'https://payload.ts.mezeet.com', // Payload 도메인을 추가
+    ],
+  },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
