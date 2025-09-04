@@ -1,0 +1,8 @@
+packages:
+  - '../../packages/*'
+  - '../../tools/*'
+  - '../../test'
+  - '../../templates/blank'
+  #- 'templates/website'
+
+updateNotifier: false
