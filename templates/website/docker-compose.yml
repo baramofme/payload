@@ -8,11 +8,11 @@ services:
       - ../../packages:/home/node/app/packages
       - ../../tools:/home/node/app/tools
       - ../../test:/home/node/app/test
-      #- node_modules:/home/node/app/node_modules
-      #- next_cache:/home/node/app/.next
+      - node_modules:/home/node/app/node_modules
+      - next_cache:/home/node/app/.next
       # for persist ... place volumes in dokploy service files folder
-      - ../../../files/node_modules:/home/node/app/node_modules
-      - ../../../files/next_cache:/home/node/app/.next
+      #- ../../../files/node_modules:/home/node/app/node_modules
+      #- ../../../files/next_cache:/home/node/app/.next
     working_dir: /home/node/app/
     command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
@@ -43,13 +43,13 @@ services:
     command:
       - --storageEngine=wiredTiger
     volumes:
-      #- mongo_data:/data/db
+      - mongo_data:/data/db
       # for persist ... place volumes in dokploy service files folder
-      - ../../../files/mongo_data:/data/db
+      #- ../../../files/mongo_data:/data/db
     logging:
       driver: none
 
-#volumes:
+volumes:
   #pgdata:
-  #data:
-  #node_modules:
+  mongo_data:
+  node_modules:
