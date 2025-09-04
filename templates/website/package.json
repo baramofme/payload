@@ -5,10 +5,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=13312 --no-deprecation' next build 2>&1",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=13312 --no-deprecation' next build 2>&1 --turbo",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbo",
+    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build --turbo && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
