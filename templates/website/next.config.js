@@ -27,12 +27,14 @@ const nextConfig = {
     ],
   },
   webpack: (webpackConfig, {isServer}) => {
+    /* 
     if (!isServer) {
        webpackConfig.cache = {
           type: 'filesystem',
           cacheDirectory: path.resolve(__dirname, './node_modules/.next/cache'),
        }
-    }
+    } 
+    */
     webpackConfig.stats = {
       reasons: true,
       chunks: true,
