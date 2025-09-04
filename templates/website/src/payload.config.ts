@@ -23,6 +23,15 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
+    localization: {
+      locales: [
+        { code: 'en', label: 'English' }, // 영어
+        { code: 'ko', label: '한국어' }, // 한국어
+          //... 필요한 다른 언어 추가
+      ],
+      defaultLocale: 'en',
+      fallback: true,
+    },
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below.
