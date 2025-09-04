@@ -1,6 +1,6 @@
 services:
   payload:
-    image: node:22-alpine
+    image: node:20-alpine
     ports:
       - '4000:3000'
     volumes:
