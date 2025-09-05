@@ -5,9 +5,7 @@ services:
       - '4000:3000'
     volumes:
       - .:/home/node/app
-      - ../../packages:/home/node/app/packages
-      - ../../tools:/home/node/app/tools
-      - ../../test:/home/node/app/test
+      - ../../packages:/home/node/app/node_modules/@payloadcms
       - node_modules:/home/node/app/node_modules
       - next_cache:/home/node/app/.next/cache
       # for persist ... place volumes in dokploy service files folder
