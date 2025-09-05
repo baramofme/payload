@@ -20,8 +20,8 @@ const nextConfig = {
         hostname: 'payload.ts.mezeet.com',
       },
       {
-        protocol: 'http',
-        hostname: 'payload.ts.mezeet.com',
+        protocol: 'https',
+        hostname: 'paydev.ts.mezeet.com',
       },
       {
         protocol: 'http',
