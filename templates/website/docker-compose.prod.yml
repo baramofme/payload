@@ -15,9 +15,9 @@ services:
       #- ../../../files/next_cache:/home/node/app/.next
     working_dir: /home/node/app/
     # dev
-    #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
+    #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev --turbopack"
     # build and start
-    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
+    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build --turbopack && pnpm start"
     # start
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm start"
     depends_on:
