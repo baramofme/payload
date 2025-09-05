@@ -41,6 +41,9 @@ const nextConfig = {
           }))
         : []),
     ],
+    imageUploads: {
+      timeout: 60000, // 타임아웃을 60초로 증가 (단위: 밀리초)
+    },
   },
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
