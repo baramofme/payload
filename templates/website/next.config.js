@@ -10,28 +10,34 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://loc
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
+  /*experimental: {
     allowedDevOrigins: ['https://payload.ts.mezeet.com'],
-  },
+  },*/
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'payload.ts.mezeet.com',
+        port: '',
+        pathname: '/api/media/file/**'
       },
       {
         protocol: 'https',
         hostname: 'paydev.ts.mezeet.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
+        port: '',
+        pathname: '/api/media/file/**'
       },
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '4000',
+        pathname: '/api/media/file/**'
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '5000',
+        pathname: '/api/media/file/**'
       },
       // NEXT_PUBLIC_SERVER_URL이 있다면 해당 도메인도 허용
       ...(NEXT_PUBLIC_SERVER_URL && NEXT_PUBLIC_SERVER_URL.startsWith('http')
