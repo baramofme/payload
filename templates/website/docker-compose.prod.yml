@@ -17,9 +17,9 @@ services:
     # dev
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
     # build and start
-    #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
+    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
     # start
-    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm start"
+    #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm start"
     depends_on:
       # - postgres
       - mongo
