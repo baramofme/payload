@@ -2,7 +2,7 @@ services:
   payload:
     image: node:20-alpine
     ports:
-      - '5000:3000'
+      - '4000:3000'
     volumes:
       - .:/home/node/app
       - ../../packages:/home/node/app/packages
@@ -14,8 +14,12 @@ services:
       #- ../../../files/node_modules:/home/node/app/node_modules
       #- ../../../files/next_cache:/home/node/app/.next
     working_dir: /home/node/app/
+    # dev
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
-    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
+    # build and start
+    #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
+    # start
+    command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm start"
     depends_on:
       # - postgres
       - mongo
