@@ -5,6 +5,7 @@ services:
       - '5000:3000'
     volumes:
       - .:/home/node/app
+      - ./public:/home/node/app/public # 이미지 등 유지 가능하게 하기
       - ../../packages:/home/node/app/node_modules/@payloadcms
       - ../../tools:/home/node/app/tools
       - node_modules:/home/node/app/node_modules
