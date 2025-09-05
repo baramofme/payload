@@ -21,8 +21,17 @@ const nextConfig = {
       },
       {
         protocol: 'http',
+        hostname: 'payload.ts.mezeet.com',
+      },
+      {
+        protocol: 'http',
         hostname: 'localhost',
         port: '3000',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '4000',
       },
       // NEXT_PUBLIC_SERVER_URL이 있다면 해당 도메인도 허용
       ...(NEXT_PUBLIC_SERVER_URL && NEXT_PUBLIC_SERVER_URL.startsWith('http')
@@ -32,6 +41,15 @@ const nextConfig = {
           }))
         : []),
     ],
+  },
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
   },
   webpack: (webpackConfig, {isServer}) => {
     webpackConfig.stats = {
