@@ -55,6 +55,9 @@ const nextConfig = {
           }))
         : []),
     ],
+    // 이미지 품질을 명시적으로 설정하여 경고를 제거합니다.
+    // 퀄리티 값을 배열로 지정해 Next.js가 자동으로 최적의 품질을 선택하게 합니다.
+    qualities: [75, 80, 85, 90, 95, 100],
   },
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
