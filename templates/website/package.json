@@ -7,8 +7,8 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS='--no-deprecation' next build --turbopack",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
-    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build --turbopack && pnpm start",
+    "dev": "cross-env NODE_ENV=development NODE_OPTIONS=--no-deprecation next dev --turbopack",
+    "dev:prod": "cross-env NODE_ENV=development NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build --turbopack && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
