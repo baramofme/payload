@@ -11,14 +11,11 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://loc
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: [
-    'http://localhost:3000', // Allow requests from your development server
-    'http://localhost:4000', 
-    'http://localhost:5000', 
-    'http://192.168.45.181:3000', // Example if you're accessing from a specific IP
-    'http://192.168.45.181:4000',
-    'http://192.168.45.181:5000',
-    'https://paydev.ts.mezeet.com',
-    'https://payload.ts.mezeet.com'
+    // Allow requests from your development serve
+    // 'localhost' default value
+    '192.168.45.181', // Example if you're accessing from a specific IP
+    'ts.mezeet.com',
+    '*.ts.mezeet.com'
     // Add other origins as needed, e.g., 'https://your-domain.com'
   ],
   images: {
