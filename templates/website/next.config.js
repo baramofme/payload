@@ -10,9 +10,12 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://loc
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /*experimental: {
-    allowedDevOrigins: ['https://payload.ts.mezeet.com'],
-  },*/
+  // Next.js 15 버전부터 allowedDevOrigins는 serverActions 설정 안에 포함되었습니다.
+  serverActions: {
+    allowedDevOrigins: [
+      'https://paydev.ts.mezeet.com'
+    ],
+  },
   images: {
     remotePatterns: [
       {
