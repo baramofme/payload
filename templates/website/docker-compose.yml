@@ -2,7 +2,7 @@ services:
   payload:
     image: node:20-alpine
     ports:
-      - '5000:3000'
+      - '${PAYLOAD_EXTERNAL_PORT}:3000'
     volumes:
       - .:/home/node/app
       - ../../packages:/home/node/app/node_modules/@payloadcms
