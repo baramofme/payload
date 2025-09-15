@@ -7,11 +7,13 @@ services:
       - .:/home/node/app
       - ../../packages:/home/node/app/node_modules/@payloadcms
       - ../../tools:/home/node/app/tools
-      - node_modules:/home/node/app/node_modules
-      - next_cache:/home/node/app/.next/cache
+      #- node_modules:/home/node/app/node_modules
+      #- next_cache:/home/node/app/.next/cache
       # for persist ... place volumes in dokploy service files folder
-      #- ../../../files/node_modules:/home/node/app/node_modules
-      #- ../../../files/next_cache:/home/node/app/.next
+      - ../../../files/node_modules:/home/node/app/node_modules
+      - ../../../files/next_cache:/home/node/app/.next
+      # 자꾸 업로드한 파일이 날아가버려서
+      - ../../../files/public:/home/node/app/public
     working_dir: /home/node/app/
     command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm dev"
     #command: sh -c "corepack enable && corepack prepare pnpm@9.0.0 --activate && pnpm install && pnpm build && pnpm start"
